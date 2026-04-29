@@ -14,10 +14,33 @@ interface CategoryCardProps {
   category: Category
   onSelect?: () => void
   selected?: boolean
+  variant?: 'grid' | 'chip'
 }
 
-export default function CategoryCard({ category, onSelect, selected }: CategoryCardProps) {
+export default function CategoryCard({ category, onSelect, selected, variant = 'grid' }: CategoryCardProps) {
   const Icon = iconMap[category.icon] ?? Briefcase
+
+  if (variant === 'chip') {
+    return (
+      <button
+        type="button"
+        onClick={onSelect}
+        className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all whitespace-nowrap ${
+          selected
+            ? 'bg-[#002f34] border-[#002f34] text-white'
+            : 'bg-white border-gray-200 hover:border-[#23e5db] text-[#002f34]'
+        }`}
+      >
+        <Icon size={16} className={selected ? 'text-[#23e5db]' : 'text-gray-500'} />
+        <span className="text-sm font-medium">{category.name}</span>
+        {category.listing_count !== undefined && (
+          <span className={`text-xs ${selected ? 'text-gray-300' : 'text-gray-400'}`}>
+            ({category.listing_count})
+          </span>
+        )}
+      </button>
+    )
+  }
 
   return (
     <button
@@ -39,6 +62,11 @@ export default function CategoryCard({ category, onSelect, selected }: CategoryC
       }`}>
         {category.name}
       </span>
+      {category.listing_count !== undefined && (
+        <span className={`text-xs ${selected ? 'text-gray-300' : 'text-gray-400'}`}>
+          {category.listing_count} ads
+        </span>
+      )}
     </button>
   )
 }

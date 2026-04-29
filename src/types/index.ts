@@ -19,6 +19,7 @@ export interface Category {
   category_type: 'items' | 'services' | 'jobs'
   parent_id: number | null
   children?: Category[]
+  listing_count?: number
 }
 
 export interface ListingImage {
