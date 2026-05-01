@@ -1,0 +1,45 @@
+# Node
+node_modules
+npm-debug.log*
+
+# Build artefacts (rebuilt inside Docker)
+dist
+dist-ssr
+
+# Python bytecode / caches
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info
+.eggs
+.pytest_cache
+
+# Virtual environments
+.venv
+venv
+env
+
+# SQLite database files (use a managed DB in production)
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads (use Cloudinary in production)
+uploads/
+
+# Environment files (inject via Sevalla environment variables)
+.env
+backend/.env
+
+# Editor / OS
+.idea
+.vscode
+.DS_Store
+*.suo
+*.sw?
+
+# Git
+.git
+.gitignore
