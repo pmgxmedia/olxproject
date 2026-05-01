@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     CLOUDINARY_API_KEY: str = "your-api-key"
     CLOUDINARY_API_SECRET: str = "your-api-secret"
     
-    DEBUG: bool = True
+    DEBUG: bool = False
     CORS_ORIGINS: str = "http://localhost:5173,http://127.0.0.1:5173"
     
     @property

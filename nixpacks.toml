@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["python311", "nodejs_20"]
+
+[phases.install]
+cmds = [
+    "npm ci",
+    "pip install -r backend/requirements.txt"
+]
+
+[phases.build]
+cmds = [
+    "npm run build"
+]
+
+# Start command is defined in Procfile (the single source of truth).
+# Sevalla will read the Procfile automatically; this section is intentionally omitted.
